@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const home = require("../controllers/home.controller");
 
-router.get("/", async (req, res) => {
-    res.status(200).send({ message: "Hello, CFG SERVER" });
-});
+router.get("/", home.home);
 
 module.exports = router;
