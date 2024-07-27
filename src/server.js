@@ -15,6 +15,7 @@ const databaseURL = process.env.DATABASE_URL;
 
 //Routes Middleware
 app.get('/', homeRoutes);
+
 app.get('/student', studentRoutes);
 app.get('/volunteer', volunteerRoutes);
 
