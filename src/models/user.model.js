@@ -4,11 +4,13 @@ const UserSchema = new mongoose.Schema({
         fullname: String,
         email: String,
         phone: String,
+        role: String,
+    password:{type:String}
         Active_Sessions: [{type: String}],
     },
-{
-    timestamps: true,
-});
+    {
+        timestamps: true,
+    });
 
 
 module.exports = mongoose.model("User", UserSchema);
