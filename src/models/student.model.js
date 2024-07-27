@@ -12,19 +12,15 @@ const AttendanceSchema = new Schema({
   status: { type: String, enum: ['Present', 'Absent', 'Late'], required: true }
 });
 
-const FeedbackSchema = new Schema({
-  rating: { type: Number, min: 1, max: 5, required: true },
-  comments: { type: String }
-});
 
 const StudentSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  class:{type: Number, required: true, default:1},
   subjects: [{ type: String, required: true }],
   dailyLearningHistory: [DailyLearningSchema],
   attendance: [AttendanceSchema],
-  feedbackForms: [FeedbackSchema]
 });
 
 const Student = mongoose.model('Student', StudentSchema);

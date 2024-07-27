@@ -11,6 +11,10 @@ const VolunteerSchema = new mongoose.Schema({
         ageGroup: {type: String},
         preferences: [{type: String, required: true}],
         availability: [{type: String, required: true}],
+    classRange:{
+            minClass:{type: Number, required: true},
+        maxClass:{type: Number, required: true},
+    }
     },
     {
         timestamps: true,

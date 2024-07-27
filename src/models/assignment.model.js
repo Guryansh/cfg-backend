@@ -5,7 +5,7 @@ const AssignmentSchema = new mongoose.Schema({
     student: { type: mongoose.Schema.Types.ObjectId, ref: 'Student', required: true },
     assignedDate: { type: Date, default: Date.now },
     nextSessionDate: { type: Date, required: true },
-    isArriving: { type: Boolean, default: false },
+    rsvp: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model('Assignment', AssignmentSchema);
