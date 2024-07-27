@@ -13,12 +13,14 @@ const mongoose = require("mongoose");
 const homeRoutes = require("./routes/home.route");
 const studentRoutes = require("./routes/student.route");
 const volunteerRoutes = require("./routes/volunteer.route");
+const circleLeaderRoutes=require("./routes/circleLeader.route");
 const databaseURL = process.env.DATABASE_URL;
 
 //Routes Middleware
 app.use('/', homeRoutes);
 app.use('/student', studentRoutes);
 app.use('/volunteer', volunteerRoutes);
+app.use('/circleleader', circleLeaderRoutes);
 
 mongoose.connect(databaseURL).then(() => console.log("Connected to database"))
     .catch(err => console.log(err.message));
