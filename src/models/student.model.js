@@ -21,7 +21,7 @@ const StudentSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  subjects: { type: [String], required: true },
+  subjects: [{ type: String, required: true }],
   dailyLearningHistory: [DailyLearningSchema],
   attendance: [AttendanceSchema],
   feedbackForms: [FeedbackSchema]

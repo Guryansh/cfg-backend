@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs')
 
 // Define the schema for the CircleLeader
 const CircleLeaderSchema = new mongoose.Schema({
@@ -40,17 +39,17 @@ const CircleLeaderSchema = new mongoose.Schema({
 });
 
 // Pre-save middleware to hash password
-CircleLeaderSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) {
-        return next();
-    }
-    try {
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
-        next();
-    } catch (error) {
-        next(error);
-    }
-});
+// CircleLeaderSchema.pre('save', async function (next) {
+//     if (!this.isModified('password')) {
+//         return next();
+//     }
+//     try {
+//         const salt = await bcrypt.genSalt(10);
+//         this.password = await bcrypt.hash(this.password, salt);
+//         next();
+//     } catch (error) {
+//         next(error);
+//     }
+// });
 
 module.exports = mongoose.model('CircleLeader', CircleLeaderSchema)
