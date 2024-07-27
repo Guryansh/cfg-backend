@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require("cors");
+
+app.use(express.json());
 app.use(cors());
 const mongoose = require("mongoose");
 
@@ -14,10 +16,9 @@ const volunteerRoutes = require("./routes/volunteer.route");
 const databaseURL = process.env.DATABASE_URL;
 
 //Routes Middleware
-app.get('/', homeRoutes);
-
-app.get('/student', studentRoutes);
-app.get('/volunteer', volunteerRoutes);
+app.use('/', homeRoutes);
+app.use('/student', studentRoutes);
+app.use('/volunteer', volunteerRoutes);
 
 mongoose.connect(databaseURL).then(() => console.log("Connected to database"))
     .catch(err => console.log(err.message));
